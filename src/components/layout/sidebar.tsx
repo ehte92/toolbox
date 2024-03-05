@@ -1,12 +1,13 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import { SideNav } from "@/components/layout/side-nav";
-import { NavItems } from "@/components/constants/side-nav";
+import React, { useState } from 'react';
 
-import { cn } from "@/lib/utils";
-import { useSidebar } from "@/hooks/useSidebar";
-import { BsArrowLeftShort } from "react-icons/bs";
+import { BsArrowLeftShort } from 'react-icons/bs';
+
+import { NavItems } from '@/components/constants/side-nav';
+import { SideNav } from '@/components/layout/side-nav';
+import { useSidebar } from '@/hooks/useSidebar';
+import { cn } from '@/lib/utils';
 
 interface SidebarProps {
   className?: string;
@@ -25,15 +26,15 @@ export default function Sidebar({ className }: SidebarProps) {
     <nav
       className={cn(
         `relative hidden h-screen border-r pt-20 md:block`,
-        status && "duration-500",
-        isOpen ? "w-72" : "w-[78px]",
-        className,
+        status && 'duration-500',
+        isOpen ? 'w-72' : 'w-[78px]',
+        className
       )}
     >
       <BsArrowLeftShort
         className={cn(
-          "absolute -right-3 top-20 cursor-pointer rounded-full border bg-background text-3xl text-foreground",
-          !isOpen && "rotate-180",
+          'absolute -right-3 top-20 cursor-pointer rounded-full border bg-background text-3xl text-foreground',
+          !isOpen && 'rotate-180'
         )}
         onClick={handleToggle}
       />
