@@ -14,7 +14,7 @@ const FeatureCard: React.FC<CardProps> = ({
   IconComponent,
 }) => {
   return (
-    <div className="max-w-sm p-4 bg-white border border-gray-200 cursor-pointer rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-900">
+    <div className="max-w-sm p-4 bg-white border border-gray-200 cursor-pointer rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-900 hover:border-primary dark:hover:border-primary transition-colors duration-300">
       <IconComponent className="w-12 h-12 text-gray-400 dark:text-gray-500 mb-2" />
       <Link href="#">
         <h5 className="mb-2 text-xl font-semibold tracking-tight text-gray-900 dark:text-white">

@@ -1,4 +1,4 @@
-import { type LucideIcon } from "lucide-react";
+import { type LucideIcon } from 'lucide-react';
 
 export interface NavItem {
   title: string;
@@ -7,4 +7,10 @@ export interface NavItem {
   color?: string;
   isChidren?: boolean;
   children?: NavItem[];
+}
+
+export interface FeatureItem {
+  title: string;
+  description: string;
+  IconComponent: LucideIcon;
 }

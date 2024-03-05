@@ -43,12 +43,12 @@ export function SideNav({ items, setOpen, className }: SideNavProps) {
       {items.map((item) =>
         item.isChidren ? (
           <Accordion
-            type="single"
-            collapsible
+            type="multiple"
+            // collapsible
             className="space-y-2"
             key={item.title}
-            value={openItem}
-            onValueChange={setOpenItem}
+            // value={openItem}
+            // onValueChange={setOpenItem}
           >
             <AccordionItem value={item.title} className="border-none ">
               <AccordionTrigger
