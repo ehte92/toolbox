@@ -6,6 +6,7 @@ import { ThemeProvider } from 'next-themes';
 import { Inter as FontSans } from 'next/font/google';
 
 import { Layout } from '@/components/layout';
+import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
 
 const fontSans = FontSans({
@@ -53,6 +54,7 @@ export const Document = ({ children }: { children: ReactNode }) => {
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Layout>{children}</Layout>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
