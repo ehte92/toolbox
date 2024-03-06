@@ -12,7 +12,7 @@ export const FeatureItems: FeatureItem[] = [
   {
     title: 'Token Generator',
     description:
-      'Generate a random token for your application. You can use this token to authenticate your application. This token is generated using a cryptographically secure random number generator.',
+      'Generate secure, customizable tokens instantly with our user-friendly Token Generator. Perfect for enhancing application security and API protection.',
     IconComponent: ShuffleIcon,
   },
   {
