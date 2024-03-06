@@ -26,17 +26,6 @@ interface SideNavProps {
 export function SideNav({ items, setOpen, className }: SideNavProps) {
   const path = usePathname();
   const { isOpen } = useSidebar();
-  const [openItem, setOpenItem] = useState('');
-  const [lastOpenItem, setLastOpenItem] = useState('');
-
-  useEffect(() => {
-    if (isOpen) {
-      setOpenItem(lastOpenItem);
-    } else {
-      setLastOpenItem(openItem);
-      setOpenItem('');
-    }
-  }, [isOpen]);
 
   return (
     <nav className="space-y-2">
@@ -44,11 +33,12 @@ export function SideNav({ items, setOpen, className }: SideNavProps) {
         item.isChidren ? (
           <Accordion
             type="multiple"
-            // collapsible
             className="space-y-2"
             key={item.title}
-            // value={openItem}
-            // onValueChange={setOpenItem}
+            defaultValue={[
+              item.title,
+              ...(item.children?.map((child) => child.title) || []),
+            ]}
           >
             <AccordionItem value={item.title} className="border-none ">
               <AccordionTrigger
