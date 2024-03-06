@@ -70,50 +70,57 @@ export default function HashGenerator() {
 
   return (
     <div className="flex justify-center items-center min-h-screen dark:bg-gray-800 bg-white">
-      <div className="w-full max-w-xl p-6 space-y-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md">
-        <h2 className="text-center text-xl font-semibold dark:text-white">
-          Hash Generator
-        </h2>
-        <hr className="border-gray-400 dark:border-gray-600" />
-        <p className="text-center dark:text-gray-300">
-          Generate a hash for your application. You can use this hash to
-          authenticate your application. This hash is generated using a
-          cryptographically secure hash function.
-        </p>
-        <div className="grid w-full gap-1.5">
-          <Label htmlFor="hashText">Text to hash</Label>
-          <Textarea
-            placeholder="Enter text to hash"
-            id="hashText"
-            value={clearText}
-            onChange={(e) => setClearText(e.target.value)}
-          />
+      <div className="w-full max-w-xl p-6">
+        <div className="space-y-4 mb-6">
+          <h2 className="text-center text-xl font-semibold dark:text-white">
+            Hash Generator
+          </h2>
+          <hr className="border-gray-400 dark:border-gray-600" />
+          <p className="text-center dark:text-gray-300">
+            Generate a hash for your application. You can use this hash to
+            authenticate your application. This hash is generated using a
+            cryptographically secure hash function.
+          </p>
         </div>
-        <hr className="border-gray-400 dark:border-gray-600" />
-        <div className="grid w-full gap-1.5">
-          <Label htmlFor="encoding">Digest encoding</Label>
-          <Select onValueChange={setEncoding} value={encoding}>
-            <SelectTrigger>
-              <SelectValue placeholder="Hexadecimal" />
-            </SelectTrigger>
-            <SelectContent>
-              {digestEncodings.map(({ value, label }) => (
-                <SelectItem key={value} value={value}>
-                  {label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-        <div className="mt-2">
-          {Object.keys(algos).map((algo) => (
-            <div key={algo} className="relative flex items-center w-full mt-2">
-              <div className="absolute start-0 p-2.5 bg-gray-200 dark:bg-gray-600 rounded-l-md w-20">
-                <p className="text-xs font-medium">{algo}</p>
+        <div className="space-y-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6">
+          <div className="grid w-full gap-1.5">
+            <Label htmlFor="hashText">Text to hash</Label>
+            <Textarea
+              placeholder="Enter text to hash"
+              id="hashText"
+              value={clearText}
+              onChange={(e) => setClearText(e.target.value)}
+            />
+          </div>
+          <hr className="border-gray-400 dark:border-gray-600" />
+          <div className="grid w-full gap-1.5">
+            <Label htmlFor="encoding">Digest encoding</Label>
+            <Select onValueChange={setEncoding} value={encoding}>
+              <SelectTrigger>
+                <SelectValue placeholder="Hexadecimal" />
+              </SelectTrigger>
+              <SelectContent>
+                {digestEncodings.map(({ value, label }) => (
+                  <SelectItem key={value} value={value}>
+                    {label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="mt-2">
+            {Object.keys(algos).map((algo) => (
+              <div
+                key={algo}
+                className="relative flex items-center w-full mt-2"
+              >
+                <div className="absolute start-0 p-2.5 bg-gray-200 dark:bg-gray-600 rounded-l-md w-20">
+                  <p className="text-xs font-medium">{algo}</p>
+                </div>
+                <InputCopy value={hashText(algo as AlgoNames, clearText)} />
               </div>
-              <InputCopy value={hashText(algo as AlgoNames, clearText)} />
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
